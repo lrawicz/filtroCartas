@@ -14,7 +14,7 @@ fs.readFile('DB.csv', 'utf8', function(err, contents) {
   		var ID = card[5]; //ID
   		var booster = card[6]; //ID
   		console.log(booster);
-  		var path = booster.trim() + "/" + rarity;
+  		var path = "output/" + booster.trim() + "/" + rarity;
     	if (fs.existsSync(path)) {
 
   		}else{
@@ -25,7 +25,7 @@ fs.readFile('DB.csv', 'utf8', function(err, contents) {
   		
 
 
-  		fs.copyFile('/RAW/' + ID + '.png', '/' + path + '/' + ID + '.png', (err) => {
+  		fs.copyFile('RAW/' + ID + '.png',  path + '/' + ID + '.png', (err) => {
 		  if (err){
 		  	console.log(err);
 		  } else{
@@ -36,10 +36,10 @@ fs.readFile('DB.csv', 'utf8', function(err, contents) {
 	}
 
 
-fs.copyFile('source.txt', 'destination.txt', (err) => {
+/*fs.copyFile('RAW/41462083.png', 'destination.png', (err) => {
   if (err) throw err;
   console.log('source.txt was copied to destination.txt');
 });
-
+*/
 });
  
