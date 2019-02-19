@@ -12,14 +12,12 @@ fs.readFile('DB.csv', 'utf8', function(err, contents) {
   		
   		card = raw.split(",")
   		var rarity = card[2]; //rarity
-  		var ID = card[5]; //ID
+  		var ID = parseInt(card[5]); //ID
   		var booster = card[6]; //booster
   		console.log(booster);
   		var path = "output/" + booster.trim() + "/" + rarity;
-    	if (fs.existsSync(path)) {
-
-  		}else{
-  			mkdirp(path);
+    	if (!fs.existsSync(path)) {
+			mkdirp(path);  			
   		}
   		console.log ("asd");
 
