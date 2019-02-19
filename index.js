@@ -4,6 +4,7 @@ var mkdirp = require('mkdirp');
 fs.readFile('DB.csv', 'utf8', function(err, contents) {
     
 	//Card number,Name,Rarity,Category,RAW,ID,booster
+	//1          ,2   ,3     ,4       ,5  ,6 ,7
 
     var cards = contents.split("\n");
     cards.shift();
@@ -12,7 +13,7 @@ fs.readFile('DB.csv', 'utf8', function(err, contents) {
   		card = raw.split(",")
   		var rarity = card[2]; //rarity
   		var ID = card[5]; //ID
-  		var booster = card[6]; //ID
+  		var booster = card[6]; //booster
   		console.log(booster);
   		var path = "output/" + booster.trim() + "/" + rarity;
     	if (fs.existsSync(path)) {
@@ -34,12 +35,5 @@ fs.readFile('DB.csv', 'utf8', function(err, contents) {
 		});
   		//process.exit(1);
 	}
-
-
-/*fs.copyFile('RAW/41462083.png', 'destination.png', (err) => {
-  if (err) throw err;
-  console.log('source.txt was copied to destination.txt');
-});
-*/
 });
  
