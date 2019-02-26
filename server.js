@@ -1,7 +1,7 @@
 var fs = require('fs');
 var mkdirp = require('mkdirp');
 
-fs.readFile('DB.csv', 'utf8', function(err, contents) {
+fs.readFile('CSV/DB.csv', 'utf8', function(err, contents) {
     
 	//Card number,Name,Rarity,Category,RAW,ID,booster
 	//1          ,2   ,3     ,4       ,5  ,6 ,7
@@ -15,11 +15,11 @@ fs.readFile('DB.csv', 'utf8', function(err, contents) {
   		var ID = parseInt(card[5]); //ID
   		var booster = card[6]; //booster
   		console.log(booster);
-  		var path = "output/" + booster.trim() + "/" + rarity;
+  		var path = "output/BoostersOficiales/" + booster.trim() + "/" + rarity;
     	if (!fs.existsSync(path)) {
 			mkdirp(path);  			
   		}
-  		console.log ("asd");
+  	//	console.log ("asd");
 
   		
 
@@ -28,7 +28,7 @@ fs.readFile('DB.csv', 'utf8', function(err, contents) {
 		  if (err){
 		  	console.log(err);
 		  } else{
-		  	console.log('source.txt was copied to destination.txt');
+		  //	console.log('source.txt was copied to destination.txt');
 		  }
 		});
   		//process.exit(1);

@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/lrawicz/filtroCartas#readme",
   "dependencies": {
+    "dynamic-watermark": "^1.0.0",
+    "gm": "^1.23.1",
+    "imagemagick-dynamic-watermark": "^3.1.0",
     "mkdirp": "^0.5.1"
   }
 }
