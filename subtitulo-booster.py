@@ -38,6 +38,6 @@ for line in f:
 
 	out = Image.alpha_composite(base, txt)
 	#out.show()
-	out.save("boosterNico/"+ subtitulo.rstrip() + ".png")
+	out.save("output/boosterNico/"+ subtitulo.rstrip() + ".png")
 	
 	

@@ -51,6 +51,6 @@ for jugador in jugadores:
 
 		out = Image.alpha_composite(base, txt)
 		#out.show()
-		out.save("base25/"+ subtitulo.rstrip() + ".png")
+		out.save("output/base25/"+ subtitulo.rstrip() + ".png")
 		
 		
