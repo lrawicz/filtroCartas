@@ -2,7 +2,7 @@ import os, random, math, shutil
 
 
 
-mydir = '../output/example'
+mydir = "../output/BoosterE-pool/"
 filelist = [ f for f in os.listdir(mydir) if f.endswith(".png") ]
 for f in filelist:
     os.remove(os.path.join(mydir, f))
@@ -22,11 +22,12 @@ typeCard = ["UR","SR","SR","R","R","R","C","C","C", \
 			"UR","SR","SR","R","R","R","C","C","C",
 			"UR","SR","SR","R","R","R","C","C","C",
 			"UR","SR","SR","R","R","R","C","C","C",
-			"UR","SR","SR","R","R","R","C","C","C"] 
+			"UR","SR","SR","R","R","R","C","C","C",
+			]
 booster = []
 
 for TC in typeCard:
-	booster.append(random.choice(os.listdir("../output/final/" + TC)))
+	booster.append(random.choice(os.listdir(mydir + TC)))
 
 
 
@@ -143,5 +144,7 @@ for card in booster:
 
 	out = Image.alpha_composite(base, txt)
 	#out.show()
-	out.save("../output/example/" + str(count+1) + ".png")
+	newFileName = str("00") + str(count+1) + ".png"
+	print(newFileName[-7:])
+	out.save("../output/boosterE-seleccion/" + newFileName[-7:] )
 	count  = count +1
