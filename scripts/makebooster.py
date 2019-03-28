@@ -1,12 +1,18 @@
 import os, random, math, shutil
 
 
+fromDir = "../output/BoosterE-pool/"
+toDir =  "../output/boosterE-seleccion/"
 
-mydir = "../output/BoosterE-pool/"
-filelist = [ f for f in os.listdir(mydir) if f.endswith(".png") ]
+letrasBooster= "X" 
+generacion= "'02"
+
+
+filelist = [ f for f in os.listdir(toDir) if f.endswith(".png") ]
+
 for f in filelist:
-    os.remove(os.path.join(mydir, f))
-
+    os.remove(os.path.join(toDir, f))
+    print("remove")
 
 
 #try: 
@@ -14,22 +20,25 @@ for f in filelist:
 #except:
 #	print("el folder no existe")
 #os.makedirs('../output/example')
-letrasBooster= "E" 
-generacion= "'02"
+
 watermark = letrasBooster + generacion
 
-typeCard = ["UR","SR","SR","R","R","R","C","C","C", \
+typeCard = ["UR","SR","SR","R","R","R","C","C","C",
 			"UR","SR","SR","R","R","R","C","C","C",
 			"UR","SR","SR","R","R","R","C","C","C",
 			"UR","SR","SR","R","R","R","C","C","C",
-			"UR","SR","SR","R","R","R","C","C","C",
+			"UR","SR","SR","R","R","R","C","C","C"		
 			]
 booster = []
 
 for TC in typeCard:
-	booster.append(random.choice(os.listdir(mydir + TC)))
+	booster.append(random.choice(os.listdir(fromDir + TC)))
 
-
+#booster = ["Spell Card72302403.png","Flip Effect Monster62121.png",
+#			"Spell Card42703248.png","Normal Monster66672569.png",
+#			"Spell Card18161786.png","Spell Card19159413.png",
+#			"Effect Monster29155212.png","Normal Monster20277860.png",
+#			"Normal Monster20277860.png",]
 
 from PIL import Image, ImageDraw, ImageFont
 
@@ -60,7 +69,7 @@ for card in booster:
 		color = 0
 	d.text((x,y), watermark , font=fnt, fill=(color,color,color,255))
 	diametro = 20
-	inicioX = x + 46
+	inicioX = x + 48
 	inicioY = y +5 
 	if typeCard[count] == "C":
 		d.ellipse((inicioX, inicioY, inicioX +diametro, inicioY + diametro), fill = 'grey', outline ='black')
@@ -146,5 +155,5 @@ for card in booster:
 	#out.show()
 	newFileName = str("00") + str(count+1) + ".png"
 	print(newFileName[-7:])
-	out.save("../output/boosterE-seleccion/" + newFileName[-7:] )
+	out.save(toDir + newFileName[-7:] )
 	count  = count +1
