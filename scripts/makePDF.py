@@ -4,10 +4,12 @@ from fpdf import FPDF
 from PIL import Image
 import os
 import math
-
+from shutil import rmtree
 
 ancho = 0
 largo = 0
+Origen = "../horno/"
+Destino = "../PDF/"
 def Dominion(): #Euro Estandar
 	return 59, 92
 def Magic_Size(): #TCG
@@ -29,11 +31,11 @@ def test():
 	files = [f for f in os.listdir('./output/example/') ]
 	for f in files:
 		print f	 	
-def toPDF_allIn1(folder):
+def toPDF_allIn1(_Origen, _Destino):
 	global largo
 	global ancho
 	maxPorHoja = max_cartasPorA4()
-	SourceFolder = folder 
+	SourceFolder = _Origen 
 	pdf = FPDF('P','mm','A4')
 	NumImagen = 1
 	files = [f for f in os.listdir( SourceFolder) ]
@@ -47,20 +49,20 @@ def toPDF_allIn1(folder):
 		pdf.image(SourceFolder  + fileName,x,y,ancho,largo)
 		NumImagen = NumImagen+1
 
-	pdf.output("../PDF/booster.pdf", "F")
+	pdf.output(_Destino + "booster"+".pdf", "F")
 
-def toPDF_1PerPage(folder):
+def toPDF_1PerPage(): 
 	global largo
 	global ancho
 	maxPorHoja = max_cartasPorA4()
-	SourceFolder = folder 
+	SourceFolder = Origen 
 	files = [f for f in os.listdir(SourceFolder) ]
 	NumImagen = 1
 	numHoja = 1
 	for fileName in files:
 		if NumImagen == (maxPorHoja +1):
 			strhoja = ("000" + str(numHoja))[-3:]
-			pdf.output("../PDF/" + strhoja + ".pdf", "F")
+			pdf.output( Destino + strhoja + ".pdf", "F")
 			NumImagen =1
 			numHoja = numHoja +1
 		if NumImagen ==1:
@@ -70,7 +72,6 @@ def toPDF_1PerPage(folder):
 		x,y = grilla(NumImagen)	 
 		pdf.image(SourceFolder + "/" + fileName,x,y,ancho,largo)
 		NumImagen = NumImagen+1
-
 
 def grilla(Number):
     global largo
@@ -87,13 +88,23 @@ def grilla(Number):
     return x, y 
 	
 def max_cartasPorA4():
+	global largo
+	global ancho
 	a4Ancho, a4Largo = A4()
 	MaxFila = int(math.floor(a4Ancho/ancho))
 	MaxColumn = int(math.floor(a4Largo/largo))
 	return MaxFila*MaxColumn
 
-def toZip(file):
-	print("hola")
-ancho, largo = Magic_Size()
-toPDF_allIn1("../compra/output/")
+def main(gen, letter):
+	global largo
+	global ancho
+	ancho, largo = Magic_Size()
+	Origen = "../horno/" + gen + "/seleccion/"
+	Destino = "../horno/" + gen + "/PDF/"
+	try:
+		rmtree(Destino)
+	except:
+		print("nah")
+	os.mkdir(Destino)
+	toPDF_allIn1(Origen, Destino)
 #toZip()
