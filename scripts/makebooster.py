@@ -1,11 +1,11 @@
 import os, random, math, shutil
 
 
-fromDir = "../output/BoosterE-pool/"
-toDir =  "../output/boosterE-seleccion/"
+fromDir = "../output/03-pool/"
+toDir =  "../output/03-seleccion/"
 
-letrasBooster= "X" 
-generacion= "'02"
+letrasBooster= "A" 
+generacion= "'03"
 
 
 filelist = [ f for f in os.listdir(toDir) if f.endswith(".png") ]
@@ -44,7 +44,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 count  = 0
 for card in booster:
-	base = Image.open('../output/final/'+typeCard[count]+'/' +  str(card) ).convert('RGBA')
+	base = Image.open(fromDir +typeCard[count]+'/' +  str(card) ).convert('RGBA')
 	width, height = base.size
 
 	# make a blank image for the tex, initialized to transparent text color

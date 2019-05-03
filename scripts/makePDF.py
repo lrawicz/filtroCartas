@@ -95,5 +95,5 @@ def max_cartasPorA4():
 def toZip(file):
 	print("hola")
 ancho, largo = Magic_Size()
-toPDF_allIn1("../output/boosterE-seleccion/")
+toPDF_allIn1("../compra/output/")
 #toZip()

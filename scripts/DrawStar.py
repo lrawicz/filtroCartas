@@ -9,16 +9,18 @@ generacion= "'02"
 watermark = letrasBooster + generacion
 
 filelist = [ f for f in os.listdir(mydir) if f.endswith(".png") ]
-print("test1")
+
 for card in filelist:
-	print("test2")
+
 	base = Image.open(mydir +  card ).convert('RGBA')
 	width, height = base.size
 	y = height*9/80 # arriba
 	x = 25
 	inicioX = x + 46
 	inicioY = y +5 
-	
+	inicioX = x + 48
+	inicioY = y +5
+
 	txt = Image.new('RGBA', base.size, (255,255,255,0))
 	fnt = ImageFont.truetype('/usr/share/fonts/truetype/freefont/MatrixRegularSmallCaps.ttf', 35) # abajo = 20
 	d = ImageDraw.Draw(txt)
@@ -48,30 +50,30 @@ for card in filelist:
 	Y10 = distance*math.sin(math.radians(angle*8)) + Y9
 	Y11 = distance*math.sin(math.radians(angle*6)) + Y10
 
-
-	d.polygon(( \
-	X1 , Y1, \
-	X2 , Y2, \
-	X3 , Y3,  \
-	X4, Y4, \
-	X5, Y5, \
-	X6, Y6, \
-	X7, Y7, \
-	X8, Y8, \
-	X9, Y9, \
-	X10, Y10, \
-	X11, Y11 \
-	), \
-	fill = 'red', outline ='black')
+	if (True == True):
+		d.polygon(( \
+		X1 , Y1, \
+		X2 , Y2, \
+		X3 , Y3,  \
+		X4, Y4, \
+		X5, Y5, \
+		X6, Y6, \
+		X7, Y7, \
+		X8, Y8, \
+		X9, Y9, \
+		X10, Y10, \
+		X11, Y11 \
+		), \
+		fill = 'red', outline ='black')
 	#txt = txt.rotate(45)
 
 
-	d.text((x,y), watermark , font=fnt, fill='black')
+	d.text((x,y), watermark , font=fnt, fill='white')
 	out = Image.alpha_composite(base, txt)
 	#out.show()
 	newFileName = str("000") + "01" + ".png"
-	print(newFileName[-7:])
-	out.save("../output/FIM/" + newFileName[-7:] )
+	print(card)
+	out.save("../output/FIM/" + card )
 
 
 
