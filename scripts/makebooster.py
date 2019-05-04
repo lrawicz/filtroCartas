@@ -62,7 +62,10 @@ def main(_from, _to,_code, _letter):
 		#d.rectangle([(x, y), (x+80, y+20)], fill=(0,0,0,255), outline=None)
 		words = card.split(" ")
 		words[0]
-		if (words[0] == "Spell" or words[0] == "Trap"):
+		rgb_im = base.convert('RGB')
+		r, g, b = rgb_im.getpixel((20, 20))
+		if (r, g, b) == (5,141,121) or (r, g, b) == (167,27,114):
+		#if (words[0] == "Spell" or words[0] == "Trap"):
 			color = 255
 		else:
 			color = 0
