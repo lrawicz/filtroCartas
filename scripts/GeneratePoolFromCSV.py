@@ -28,8 +28,9 @@ def main(_csv, _output, _set):
 		rareza = card[2]
 		typeCard = card[10]
 		booster = card[3]
-		print(booster)
 		if _set.count(booster)>0 :
+			print(booster)
+			
 			Path = output
 			src = srcDB + RAWFile +".png"
 			dst = Path  + rareza+ "/" + RAWFile +"-"  
@@ -37,11 +38,12 @@ def main(_csv, _output, _set):
 				if(rareza != "#N/A"):
 					if not os.path.exists(Path + rareza):
 						os.makedirs(Path + rareza)
-					while i <= _set.count(booster):
+					i=0
+					while i < _set.count(booster):
 						i=i+1
-						copyfile(src, dst + i +".png")
+						copyfile(src, dst + str(i) +".png")
 			except:
 		  		print("Problem with:" + RAWFile) 
 		  		print("src:" + src) 
-		  		print("dst:" + dst) 
+		  		print("dst:" + dst + str(i) +".png") 
 		  		print(typeCard)

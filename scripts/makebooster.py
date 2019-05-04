@@ -30,6 +30,7 @@ def main(_from, _to,_code, _letter):
 	booster = []
 
 	for TC in typeCard:
+		print(fromDir + TC)
 		booster.append(random.choice(os.listdir(fromDir + TC)))
 
 	#booster = ["Spell Card72302403.png","Flip Effect Monster62121.png",
