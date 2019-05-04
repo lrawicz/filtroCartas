@@ -31,7 +31,7 @@ def test():
 	files = [f for f in os.listdir('./output/example/') ]
 	for f in files:
 		print f	 	
-def toPDF_allIn1(_Origen, _Destino):
+def toPDF_allIn1(_Origen, _Destino, _letter):
 	global largo
 	global ancho
 	maxPorHoja = max_cartasPorA4()
@@ -49,7 +49,7 @@ def toPDF_allIn1(_Origen, _Destino):
 		pdf.image(SourceFolder  + fileName,x,y,ancho,largo)
 		NumImagen = NumImagen+1
 
-	pdf.output(_Destino + "booster"+".pdf", "F")
+	pdf.output(_Destino + "booster"+ _letter + ".pdf", "F")
 
 def toPDF_1PerPage(): 
 	global largo
@@ -106,5 +106,5 @@ def main(gen, letter):
 	except:
 		print("nah")
 	os.mkdir(Destino)
-	toPDF_allIn1(Origen, Destino)
+	toPDF_allIn1(Origen, Destino, letter)
 #toZip()

@@ -2,9 +2,15 @@ import GeneratePoolFromCSV
 import makebooster
 import makePDF
 code = "03"
-csv = "../DB/CSV/DB Yugi - DB'" + code + ".csv"
+csv = "../DB/CSV/DB Yugi - DB_Draft.csv"
 CodeFolder =  "../horno/" + code
-GeneratePoolFromCSV.main(csv,CodeFolder)
+
+PoolTest = ["LOB", "LOB"]
+
+Pool02 = "LOB, MRD, SRL, PSV, TP1, TP2, SDY, SDK"
+Pool03 = "LON, LOD, PGD, MFC, DCR, TP3, TP4, SDJ, SDP"
+PoolCustom = ["LOB", "LOB"]
+GeneratePoolFromCSV.main(csv,CodeFolder,PoolTest)
 
 
 fromDir = CodeFolder + "/pool/"
