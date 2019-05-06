@@ -11,13 +11,13 @@ def main(_csv,_from, _output, _set):
 	try:
 		rmtree(output)
 	except:
-		print("nah")
+		print("")
 	os.mkdir(output)
 	output = output + "/pool/"
 	try:
 		os.mkdir(output)
 	except:
-		print("nah")
+		print("")
 	n = 0
 	with open(csvFile, 'rb') as f:
 	    reader = csv.reader(f)
@@ -29,7 +29,7 @@ def main(_csv,_from, _output, _set):
 		typeCard = card[10]
 		booster = card[3]
 		if _set.count(booster)>0 :
-			print(booster)
+
 			
 			Path = output
 			src = srcDB + RAWFile +".png"

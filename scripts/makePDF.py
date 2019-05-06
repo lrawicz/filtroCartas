@@ -102,6 +102,6 @@ def main(gen, letter):
 	try:
 		os.mkdir(Destino)
 	except:
-		print("nah")
+		print("")
 	toPDF_allIn1(Origen, Destino, letter)
 #toZip()

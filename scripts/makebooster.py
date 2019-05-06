@@ -11,7 +11,7 @@ def main(_from, _to,_code, _letter, _jugadores, _boosterDef):
 	try:
 		os.mkdir(toDir)
 	except:
-		print("nah")
+		print("")
 	#try: 
 	#	shutil.rmtree('../output/example')
 	#except:
