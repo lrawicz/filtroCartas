@@ -17,21 +17,23 @@ ALLin=Pool02 + Pool03
 ###### Editar
 ##with open('config.json') as data_file:    
 #    data = json.load(data_file)
-code = "03"
 #exit()
+code = "03"
 pool = Pool03
+boosterDef = ["UR","SR","SR","R","R","R","C","C","C"]
+cantidadJugadores = 5
 drafteos = 5
 letraInicial = "A"
-csv = "DB/CSV/DB Yugi - DB_Draft.csv"
-CodeFolder =  "horno/" + code
 
+
+
+csv = "DB/CSV/" + "DB Yugi - DB_Draft.csv"
+CodeFolder =  "horno/" + code
 ###### 
 
 pool = pool.replace(" ","")
 
 
-print("filtrando cartas")
-GeneratePoolFromCSV.main(csv,"DB/RAW/",CodeFolder,pool)
 
 
 fromDir = CodeFolder + "/pool/"
@@ -39,9 +41,12 @@ toDir =  CodeFolder + "/seleccion/"
 letter = letraInicial
 
 
+print("filtrando cartas")
+GeneratePoolFromCSV.main(csv,"DB/RAW/",CodeFolder,pool)
+
 for x in xrange(0,drafteos):
 	print("seleccion de cartas:" + letter)
-	makebooster.main(fromDir,toDir, code, letter)
+	makebooster.main(fromDir,toDir, code, letter, cantidadJugadores, boosterDef )
 	print("Armado de PDF:" + letter)
 	makePDF.main(code,letter)
 	letter = chr(ord(letter) + 1)

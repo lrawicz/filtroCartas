@@ -1,6 +1,6 @@
 import os, random, math, shutil
 from shutil import rmtree
-def main(_from, _to,_code, _letter):
+def main(_from, _to,_code, _letter, _jugadores, _boosterDef):
 	fromDir = _from
 	toDir =  _to
 
@@ -17,15 +17,17 @@ def main(_from, _to,_code, _letter):
 	#except:
 	#	print("el folder no existe")
 	#os.makedirs('../output/example')
-
+	typeCard = []
 	watermark = letrasBooster + generacion
+	for x in xrange(1,_jugadores):
+		typeCard.extend(_boosterDef)
 
-	typeCard = ["UR","SR","SR","R","R","R","C","C","C",
-				"UR","SR","SR","R","R","R","C","C","C",
-				"UR","SR","SR","R","R","R","C","C","C",
-				"UR","SR","SR","R","R","R","C","C","C",
-				"UR","SR","SR","R","R","R","C","C","C"		
-				]
+	#typeCard = ["UR","SR","SR","R","R","R","C","C","C",
+	#			"UR","SR","SR","R","R","R","C","C","C",
+	#			"UR","SR","SR","R","R","R","C","C","C",
+	#			"UR","SR","SR","R","R","R","C","C","C",
+	#			"UR","SR","SR","R","R","R","C","C","C"		
+	#			]
 	booster = []
 
 	for TC in typeCard:
