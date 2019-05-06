@@ -1,0 +1,8 @@
+ { 
+ 	"code":"03",
+ 	"csv":"DB/CSV/DB Yugi - DB_Draft.csv", 
+ 	"boosters":"John", 
+ 	"jugadores":5, 
+ 	"letraInicial":"A",
+ 	"drafteos":5,
+} 

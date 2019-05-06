@@ -3,8 +3,8 @@ import os
 import csv
 from shutil import rmtree
 from shutil import copyfile
-def main(_csv, _output, _set):
-	srcDB = "../DB/RAW/"
+def main(_csv,_from, _output, _set):
+	srcDB = _from
 	count = 0
 	csvFile = _csv
 	output = _output
@@ -35,11 +35,12 @@ def main(_csv, _output, _set):
 			src = srcDB + RAWFile +".png"
 			dst = Path  + rareza+ "/" + RAWFile +"-"  
 			try:
-				if(rareza != "#N/A"):
+				if(rareza != "#N/A" and booster != ""):
 					if not os.path.exists(Path + rareza):
 						os.makedirs(Path + rareza)
 					i=0
 					while i < _set.count(booster):
+						booster
 						i=i+1
 						copyfile(src, dst + str(i) +".png")
 			except:

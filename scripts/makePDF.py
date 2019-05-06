@@ -43,8 +43,7 @@ def toPDF_allIn1(_Origen, _Destino, _letter):
 	for fileName in files:
 		if NumImagen == (maxPorHoja +1):
 			NumImagen =1
-			pdf.add_page()		
-		print fileName
+			pdf.add_page()
 		x,y = grilla(NumImagen)	 
 		pdf.image(SourceFolder  + fileName,x,y,ancho,largo)
 		NumImagen = NumImagen+1
@@ -68,7 +67,6 @@ def toPDF_1PerPage():
 		if NumImagen ==1:
 			pdf = FPDF('P','mm','A4')
 			pdf.add_page()		
-		print fileName
 		x,y = grilla(NumImagen)	 
 		pdf.image(SourceFolder + "/" + fileName,x,y,ancho,largo)
 		NumImagen = NumImagen+1
@@ -99,12 +97,11 @@ def main(gen, letter):
 	global largo
 	global ancho
 	ancho, largo = Magic_Size()
-	Origen = "../horno/" + gen + "/seleccion/"
-	Destino = "../horno/" + gen + "/PDF/"
+	Origen = "horno/" + gen + "/seleccion/"
+	Destino = "horno/" + gen + "/PDF/"
 	try:
-		rmtree(Destino)
+		os.mkdir(Destino)
 	except:
 		print("nah")
-	os.mkdir(Destino)
 	toPDF_allIn1(Origen, Destino, letter)
 #toZip()

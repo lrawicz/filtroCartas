@@ -9,10 +9,9 @@ def main(_from, _to,_code, _letter):
 
 
 	try:
-		rmtree(toDir)
+		os.mkdir(toDir)
 	except:
 		print("nah")
-	os.mkdir(toDir)
 	#try: 
 	#	shutil.rmtree('../output/example')
 	#except:
@@ -30,7 +29,6 @@ def main(_from, _to,_code, _letter):
 	booster = []
 
 	for TC in typeCard:
-		print(fromDir + TC)
 		booster.append(random.choice(os.listdir(fromDir + TC)))
 
 	#booster = ["Spell Card72302403.png","Flip Effect Monster62121.png",
@@ -156,6 +154,5 @@ def main(_from, _to,_code, _letter):
 		out = Image.alpha_composite(base, txt)
 		#out.show()
 		newFileName = str("00") + str(count+1) + ".png"
-		print(newFileName[-7:])
 		out.save(toDir + newFileName[-7:] )
 		count  = count +1

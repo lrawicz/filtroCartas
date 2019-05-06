@@ -1,31 +1,37 @@
-from   scripts import GeneratePoolFromCSV
+import json 
+
+from scripts import GeneratePoolFromCSV
 from scripts import makebooster
-from  scripts import makePDF
-code = "03"
-csv = "../DB/CSV/DB Yugi - DB_Draft.csv"
-CodeFolder =  "../horno/" + code
+from scripts import makePDF
+
 
 PoolTest = ["LOB", "LOB"]
 
 Pool02 = "LOB,MRD,SRL,PSV,TP1,TP2,SDY,SDK"
 Pool03="LON,LOD,PGD,MFC,DCR,TP3,TP4,SDJ,SDP"
 PoolCustom="LOB,LOB,LON"
+
 ALLin=Pool02 + Pool03
 
 
 ###### Editar
-
-pool = "DCR"
+##with open('config.json') as data_file:    
+#    data = json.load(data_file)
+code = "03"
+#exit()
+pool = Pool03
 drafteos = 5
 letraInicial = "A"
+csv = "DB/CSV/DB Yugi - DB_Draft.csv"
+CodeFolder =  "horno/" + code
 
 ###### 
 
 pool = pool.replace(" ","")
 
 
-
-GeneratePoolFromCSV.main(csv,CodeFolder,pool	)
+print("filtrando cartas")
+GeneratePoolFromCSV.main(csv,"DB/RAW/",CodeFolder,pool)
 
 
 fromDir = CodeFolder + "/pool/"
