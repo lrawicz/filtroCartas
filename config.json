@@ -2,7 +2,7 @@
 
 		 	"code":"03",
 		 	"csv":"DB Yugi - DB_Draft.csv", 
-		 	"jugadores":5, 
+		 	"jugadores":2, 
 		 	"letraInicial":"A",
 		 	"drafteos":5,
 			"boosterDef": ["UR","SR","SR","R","R","R","C","C","C"],
