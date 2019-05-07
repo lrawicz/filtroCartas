@@ -34,7 +34,7 @@ code = data["code"]
 letter = data["letraInicial"]
 cantidadJugadores = data["jugadores"]
 boosterDef = data["boosterDef"]
-
+drafteos = data["drafteos"]
 
 
 
@@ -43,9 +43,6 @@ boosterDef = data["boosterDef"]
 #    data = json.load(data_file)
 #exit()
 
-cantidadJugadores = 5
-drafteos = 5
-letraInicial = "A"
 
 
 
@@ -60,7 +57,6 @@ CodeFolder =  "horno/" + code
 
 fromDir = CodeFolder + "/pool/"
 toDir =  CodeFolder + "/seleccion/"
-letter = letraInicial
 
 print(poolUsado)
 print("filtrando cartas")

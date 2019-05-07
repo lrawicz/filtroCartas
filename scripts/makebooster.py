@@ -1,6 +1,7 @@
 import os, random, math, shutil
 from shutil import rmtree
 def main(_from, _to,_code, _letter, _jugadores, _boosterDef):
+	
 	fromDir = _from
 	toDir =  _to
 
@@ -19,7 +20,8 @@ def main(_from, _to,_code, _letter, _jugadores, _boosterDef):
 	#os.makedirs('../output/example')
 	typeCard = []
 	watermark = letrasBooster + generacion
-	for x in xrange(1,_jugadores):
+
+	for x in xrange(0,_jugadores):
 		typeCard.extend(_boosterDef)
 
 	#typeCard = ["UR","SR","SR","R","R","R","C","C","C",
