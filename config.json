@@ -1,12 +1,12 @@
  { 
 
 		 	"code":"03",
-		 	"csv":"DB Yugi - DB_Draft.csv", 
-		 	"jugadores":3, 
-		 	"letraInicial":"A",
-		 	"drafteos":5,
+		 	"csv":"DB Yugi - DB_Draft2.csv", 
+		 	"jugadores":5, 
+		 	"letraInicial":"X",
+		 	"drafteos":1,
 			"boosterDef": ["UR","SR","SR","R","R","R","C","C","C"],
-			"poolUsado": "Pool03",
+			"poolUsado": "Custom",
 			"pools":
 				{
 					"Pool02": "LOB,MRD,SRL,PSV,TP1,TP2,SDY,SDK",
@@ -14,7 +14,7 @@
 					"Allin":"LOB,MRD,SRL,PSV,TP1,TP2,SDY,SDK,LON,LOD,PGD,MFC,DCR,TP3,TP4,SDJ,SDP",
 					"Starter": "SDY,SDK,SDJ,SDP",
 					"TP": "TP1,TP2,TP3,TP4",
-					"Custom": "LOB,LOB,LOB,SRL"
+					"Custom": "PGD,PGD,MFC,MFC,DCR"
 				}
 			
 } 

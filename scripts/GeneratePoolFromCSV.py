@@ -33,7 +33,7 @@ def main(_csv,_from, _output, _set):
 			
 			Path = output
 			src = srcDB + RAWFile +".png"
-			dst = Path  + rareza+ "/" + RAWFile +"-"  
+			dst = Path  + rareza+ "/" + booster + RAWFile +"-"  
 			try:
 				if(rareza != "#N/A" and booster != ""):
 					if not os.path.exists(Path + rareza):
