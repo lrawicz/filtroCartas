@@ -1,10 +1,10 @@
  { 
 
 		 	"code":"03",
-		 	"csv":"DB Yugi - DB_Draft2.csv", 
+		 	"csv":"DB Yugi - DB_Draft.csv", 
 		 	"jugadores":5, 
-		 	"letraInicial":"X",
-		 	"drafteos":1,
+		 	"letraInicial":"A",
+		 	"drafteos":5,
 			"boosterDef": ["UR","SR","SR","R","R","R","C","C","C"],
 			"poolUsado": "Custom",
 			"pools":

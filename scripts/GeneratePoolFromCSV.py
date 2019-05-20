@@ -7,17 +7,8 @@ def main(_csv,_from, _output, _set):
 	srcDB = _from
 	count = 0
 	csvFile = _csv
-	output = _output
-	try:
-		rmtree(output)
-	except:
-		print("")
-	os.mkdir(output)
-	output = output + "/pool/"
-	try:
-		os.mkdir(output)
-	except:
-		print("")
+	output = _output + "/pool/"
+
 	n = 0
 	with open(csvFile, 'rb') as f:
 	    reader = csv.reader(f)

@@ -1,6 +1,6 @@
 import os, random, math, shutil
 from shutil import rmtree
-def main(_from, _to,_code, _letter, _jugadores, _boosterDef, special):
+def main(_from, _to,_code, _letter, _jugadores, _boosterDef):
 	
 	fromDir = _from
 	toDir =  _to
@@ -13,18 +13,33 @@ def main(_from, _to,_code, _letter, _jugadores, _boosterDef, special):
 		os.mkdir(toDir)
 	except:
 		print("")
-
+	#try: 
+	#	shutil.rmtree('../output/example')
+	#except:
+	#	print("el folder no existe")
+	#os.makedirs('../output/example')
 	typeCard = []
 	watermark = letrasBooster + generacion
 
 	for x in xrange(0,_jugadores):
 		typeCard.extend(_boosterDef)
 
-
+	#typeCard = ["UR","SR","SR","R","R","R","C","C","C",
+	#			"UR","SR","SR","R","R","R","C","C","C",
+	#			"UR","SR","SR","R","R","R","C","C","C",
+	#			"UR","SR","SR","R","R","R","C","C","C",
+	#			"UR","SR","SR","R","R","R","C","C","C"		
+	#			]
 	booster = []
 
 	for TC in typeCard:
 		booster.append(random.choice(os.listdir(fromDir + TC)))
+
+	#booster = ["Spell Card72302403.png","Flip Effect Monster62121.png",
+	#			"Spell Card42703248.png","Normal Monster66672569.png",
+	#			"Spell Card18161786.png","Spell Card19159413.png",
+	#			"Effect Monster29155212.png","Normal Monster20277860.png",
+	#			"Normal Monster20277860.png",]
 
 	from PIL import Image, ImageDraw, ImageFont
 
@@ -54,27 +69,10 @@ def main(_from, _to,_code, _letter, _jugadores, _boosterDef, special):
 		r, g, b = rgb_im.getpixel((20, 20))
 		if (r, g, b) == (5,141,121) or (r, g, b) == (167,27,114):
 		#if (words[0] == "Spell" or words[0] == "Trap"):
-			C_R = 255
-			C_G = 255
-			C_B = 255
+			color = 255
 		else:
-			C_R = 0
-			C_G = 0
-			C_B = 0
-
-		if (special == 1 ):
-			#C_R = 0
-			#C_G = 153
-			#C_B = 0
-			C_R = 254
-			C_G = 127
-			C_B = 156	
-
-
-		
-			#if (r, g, b) == (5,141,121):
-
-		d.text((x,y), watermark , font=fnt, fill=(C_R,C_G,C_B,255))
+			color = 0
+		d.text((x,y), watermark , font=fnt, fill=(color,color,color,255))
 		diametro = 20
 		inicioX = x + 48
 		inicioY = y +5 

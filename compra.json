@@ -1,0 +1,18 @@
+ { 
+
+		 	"code":"03",
+		 	"csv":"DB Yugi - DB_Draft2.csv", 
+		 	"jugadores":5, 
+		 	"letraInicial":"A",
+		 	"drafteos":10,
+			"boosterDef": ["UR","SR","SR","R","R","R","C","C","C"],
+			"poolUsado": "Custom",
+			"data":
+				{
+					"ID": "123,123,123,123",
+					"WaterMark":"Compra,Compra,Compra,Compra",
+					"Rarity":"C,R,SR,UR",
+				}
+			
+} 
+
