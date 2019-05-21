@@ -10,15 +10,16 @@ from shutil import rmtree
 from shutil import copyfile
 
 def CleanFolder(_dir):
-	try:
-		rmtree(_dir)
-	except:
-		print("")
-	os.mkdir(_dir)
-	try:
-		os.mkdir(_dir + "/pool/")
-	except:
-		print("")
+	def createFolder(_dir2):
+		try:
+			rmtree(_dir2)
+		except:
+			print("")
+		os.mkdir(_dir2)
+
+
+	createFolder(_dir);
+	createFolder(_dir+ "/pool/");
 
 
 

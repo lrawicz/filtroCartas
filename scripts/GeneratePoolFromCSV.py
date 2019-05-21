@@ -39,3 +39,8 @@ def main(_csv,_from, _output, _set):
 		  		print("src:" + src) 
 		  		print("dst:" + dst + str(i) +".png") 
 		  		print(typeCard)
+def fromList(_list, _from, _output, _watermark):
+	for x in xrange(1,length(_list)):
+		src = _from + _list[x] + ".png"
+		dst = _output + _list[x] + ".png"
+		copyfile(src, dst )
