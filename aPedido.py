@@ -29,7 +29,8 @@ def main():
 
 	csv = "DB/CSV/" + data["csv"]
 	Seleccion = data["Seleccion"].split(",")
-	WaterMark = data["WaterMark"]
+	waterMark = data["WaterMark"].split(",")
+	rarity = data["Rarity"].split(",")
 
 	_from = "DB/RAW/"
 	_to = "horno/prueba/seleccion/"
@@ -40,7 +41,7 @@ def main():
 	for x in xrange(0,len(Seleccion)):
 		src = _from + Seleccion[x] + ".png"
 		dst = _to + Seleccion[x] + ".png"
-		makebooster2.Watermark("ASD","UR",1,src,dst)
+		makebooster2.Watermark(waterMark[x],rarity[x],1,src,dst)
 		
 	makePDF.main("prueba","A" )
 
