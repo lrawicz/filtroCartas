@@ -17,6 +17,42 @@ def Watermark(word,rarity,special,imageSrc,destino):
 	inicioX = x + 48
 	inicioY = y +5
 
+
+
+
+
+	###############################################
+	############____PALABRA____####################
+	###############################################
+
+
+	rgb_im = base.convert('RGB')
+	r, g, b = rgb_im.getpixel((20, 20))
+	if (r, g, b) == (5,141,121) or (r, g, b) == (167,27,114):
+	#if (words[0] == "Spell" or words[0] == "Trap"):
+		C_R = 255
+		C_G = 255
+		C_B = 255
+	else:
+		C_R = 0
+		C_G = 0
+		C_B = 0
+	if (special == 1 ):
+		#C_R = 0
+		#C_G = 153
+		#C_B = 0
+		C_R = 254
+		C_G = 127
+		C_B = 156
+
+	draw2.text((x,y), word , font=fnt, fill=(255,255,255,255))
+
+
+
+	###############################################
+	############____rarity____#####################
+	###############################################
+
 	if(rarity == "C"):
 		draw2.ellipse((inicioX, inicioY, inicioX + diametro, inicioY + diametro), fill = 'grey', outline ='black')
 	if(rarity == "R"):
@@ -72,29 +108,6 @@ def Watermark(word,rarity,special,imageSrc,destino):
 			), \
 			fill = 'red', outline ='black')
 
-	#palabra
-
-
-	rgb_im = base.convert('RGB')
-	r, g, b = rgb_im.getpixel((20, 20))
-	if (r, g, b) == (5,141,121) or (r, g, b) == (167,27,114):
-	#if (words[0] == "Spell" or words[0] == "Trap"):
-		C_R = 255
-		C_G = 255
-		C_B = 255
-	else:
-		C_R = 0
-		C_G = 0
-		C_B = 0
-	if (special == 1 ):
-		#C_R = 0
-		#C_G = 153
-		#C_B = 0
-		C_R = 254
-		C_G = 127
-		C_B = 156
-
-	draw2.text((x,y), word , font=fnt, fill=(255,255,255,255))
 
 	out = Image.alpha_composite(base, capa2)
 	#out.show()
