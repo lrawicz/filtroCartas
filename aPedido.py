@@ -40,10 +40,31 @@ def main():
 	for x in xrange(0,len(Seleccion)):
 		src = _from + Seleccion[x] + ".png"
 		dst = _to + Seleccion[x] + ".png"
-		copyfile(src, dst)
+		makebooster2.Watermark("ASD","UR",1,src,dst)
+		
 	makePDF.main("prueba","A" )
 
+def  conWaterMark():
+	with open('config.json') as json_file:  
+	    data = json.load(json_file)
 
+
+
+	csv = "DB/CSV/" + data["csv"]
+	Seleccion = data["Seleccion"].split(",")
+	WaterMark = data["WaterMark"]
+
+	_from = "DB/RAW/"
+	_to = "horno/prueba/seleccion/"
+	_to2 = "horno/prueba/PDF"
+	createFolder(_to)
+	createFolder(_to2)
+
+	for x in xrange(0,len(Seleccion)):
+		src = _from + Seleccion[x] + ".png"
+		dst = _to + Seleccion[x] + ".png"
+		copyfile(src, dst)
+	makePDF.main("prueba","A" )
 	
 
 main()
